@@ -1,14 +1,3 @@
-// function checkUsername() {
-// 	var elMsg = document.getElementById('feedback');
-// 	if (this.value.length < 5) {
-// 		elMsg.textContent = 'Username must to be 5 character or more';
-// 	} else {
-// 		elMsg.textContent = '';
-// 	}
-// }
-
-// var 
-
 var elUsername = document.getElementById('username');
 var elMsg = document.getElementById('feedback');
 
@@ -27,17 +16,17 @@ elUsername.addEventListener('blur', function() {
 var elPassword = document.getElementById('password');
 var elPsw = document.getElementById('psw');
 
-function checkPassword() {
-    if (elPassword.value.length < 8) {
+function checkPassword(min) {
+    if (elPassword.value.length < min) {
         elPsw.style.color = 'red';
-        elPsw.textContent = 'Your password must be ' + 8 + ' characters or more';
+        elPsw.textContent = 'Your password must be ' + min + ' characters or more';
     } else {
         elPsw.innerHTML = '';
     }
 }
-// elPassword.addEventListener('blur', function() {
-//     checkPassword(8);
-// }, false);
+elPassword.addEventListener('blur', function() {
+    checkPassword(8);
+}, false); //do not understand addEventListener
 
 
 function conPassword() {
@@ -52,5 +41,16 @@ function conPassword() {
         elConfirm.style.color = "green";
         elConfirm.innerHTML = "Matching";
     }
-
 }
+
+function valEmail(){
+            var email = document.getElementById("email").value;
+            var regex = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+            var error = document.getElementById("valid");
+            if(!regex.test(email)){
+               error.style.color ='red';
+               error.innerHTML= "Enter a valid email";
+                } else {
+                error.innerHTML = '';
+                }
+        }       
